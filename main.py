@@ -21,6 +21,8 @@ def check(line: str) -> str:
         raise ValueError("entry must be a single line")
     if not line.strip():
         raise ValueError("entry must not be blank")
+    if "#" in line:
+        raise ValueError("entry must stay plain text, no hashtags")
     if len(line) > MAX_CHARS:
         raise ValueError(f"entry is {len(line)} chars, over the {MAX_CHARS} cap")
     words = len(line.split())
